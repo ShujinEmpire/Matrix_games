@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c5lnlnbqt0tk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p55f"]
+bg_color = Color(0.44946438, 0.58491606, 0.9292756, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.115864865, 0.32336348, 0.3739362, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
+bg_color = Color(0.35006934, 0.69084746, 0.35490423, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.18114182, 0.38147697, 0.11271069, 0.6)
+shadow_size = 3
+
+[node name="center_game" type="Control" unique_id=1402739727]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=82230402]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -81.0
+offset_right = 1.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5p55f")
+text = "Advance Day"
+
+[node name="Button2" type="Button" parent="." unique_id=1324437809]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 3.0
+offset_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr3o2")
+text = "Shop"
