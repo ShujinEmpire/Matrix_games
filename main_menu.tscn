@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://c053bshs3owt7" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://bwjnv12p20cku" path="res://Scenes/GrapeSoda.ttf" id="2_7vrkn"]
 [ext_resource type="FontFile" uid="uid://7qodnkdx08tr" path="res://Scenes/PixelOperator-Bold.ttf" id="3_jix8l"]
+[ext_resource type="Shader" uid="uid://d1re0mfhgn6af" path="res://scroll.gdshader" id="3_nlkkf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glbon"]
+shader = ExtResource("3_nlkkf")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgsi0"]
 bg_color = Color(0.2509804, 0.37254903, 0.21960784, 1)
@@ -62,28 +66,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu7sn")
 
-[node name="ScrollingBackground" type="Node2D" parent="." unique_id=625326312]
-
-[node name="Background" type="TextureRect" parent="ScrollingBackground" unique_id=842820531]
+[node name="Background" type="TextureRect" parent="." unique_id=842820531]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_glbon")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -135.0
 offset_top = -6.5
-offset_right = 1065.0
-offset_bottom = 678.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_06t4h")
-
-[node name="Background2" type="TextureRect" parent="." unique_id=1852710814]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1065.0
-offset_top = -6.5
-offset_right = 2265.0
+offset_right = 1079.0
 offset_bottom = 678.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -104,7 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1114032401]
+[node name="startButton" type="Button" parent="VBoxContainer" unique_id=1114032401]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.96862745, 0.9411765, 0.84705883, 1)
@@ -168,6 +160,6 @@ text = "FEED The SEED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
