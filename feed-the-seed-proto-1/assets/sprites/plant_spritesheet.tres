@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://clkw51s5k4oou"]
+
+[ext_resource type="Texture2D" uid="uid://c2bcrjxp3422v" path="res://assets/images/Plant spritesheet with clean transparent edges.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="atlas_2"]
+atlas = ExtResource("1")
+region = Rect2(800, 0, 408, 650)
+
+[sub_resource type="AtlasTexture" id="atlas_1"]
+atlas = ExtResource("1")
+region = Rect2(400, 0, 400, 650)
+
+[sub_resource type="AtlasTexture" id="atlas_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 400, 650)
+
+[sub_resource type="AtlasTexture" id="atlas_3"]
+atlas = ExtResource("1")
+region = Rect2(0, 650, 400, 652)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_2")
+}],
+"loop": 1,
+"name": &"pot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_1")
+}],
+"loop": 1,
+"name": &"seedling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_0")
+}],
+"loop": 1,
+"name": &"sprout",
+"speed": 5.0
+}]

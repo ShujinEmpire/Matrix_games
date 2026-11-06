@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="feed the seed proto_1"
-run/main_scene="uid://0a75i4f77n3u"
+run/main_scene="uid://ckorltw7ukcvv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://dmq0t4ogwhiku"
+
+[autoload]
+
+BackgroundMusic="uid://dkacsuvx10fn4"
 
 [display]
 

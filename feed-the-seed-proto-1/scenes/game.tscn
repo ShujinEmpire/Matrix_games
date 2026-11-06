@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://0a75i4f77n3u"]
 
 [ext_resource type="Script" uid="uid://c5vu5qfh27dn5" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://t6lbmg8jj0hy" path="res://assets/blue_background.jpg" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://t6lbmg8jj0hy" path="res://assets/images/blue_background.jpg" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://m3v6qexah585" path="res://scripts/button_manager.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://b1c41s72tg6xv" path="res://scripts/panel.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://xt4roojiy80a" path="res://scenes/plant_bars.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://d0mpgrti5furk" path="res://scenes/plant.tscn" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://ib4n7q6nbb6o" path="res://assets/sound/minecraft-click_0JTy0CI6.mp3" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://e4psi33o4p8l" path="res://assets/sound/chicken-on-tree-screaming.mp3" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dkacsuvx10fn4" path="res://scenes/background_music.tscn" id="9_0tnpc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
 bg_color = Color(0.39470178, 0.6843289, 0.32645866, 1)
@@ -38,7 +43,7 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_lbhrr"]
+[sub_resource type="Animation" id="Animation_gee14"]
 resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,7 +52,7 @@ tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06666667, 0.93333334),
+"times": PackedFloat32Array(0, 0.93333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -55,7 +60,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_iywne"]
 resource_name = "fade_out"
-length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,8 +76,69 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
 _data = {
 &"RESET": SubResource("Animation_lnu2h"),
-&"fade_in": SubResource("Animation_lbhrr"),
+&"fade_in": SubResource("Animation_gee14"),
 &"fade_out": SubResource("Animation_iywne")
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("scream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "fade_out"
+length = 4.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("scream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.4, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_0tnpc"),
+&"fade_out": SubResource("Animation_vtaks")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
@@ -90,7 +155,7 @@ bg_color = Color(0.40392157, 0.6784314, 0.39607844, 1)
 script = ExtResource("1_yqjtg")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1491007825]
-position = Vector2(582, 325)
+position = Vector2(577, 325.00003)
 scale = Vector2(2.1654344, 1.875)
 texture = ExtResource("2_yqjtg")
 
@@ -154,21 +219,27 @@ text = "Day: day:int"
 
 [node name="fade_transition" type="ColorRect" parent="." unique_id=932788367]
 visible = false
+z_index = 1
 offset_left = -33.0
 offset_top = -31.0
 offset_right = 1175.0
 offset_bottom = 680.0
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="fade_transition" unique_id=1800263692]
+[node name="fade_animation" type="AnimationPlayer" parent="fade_transition" unique_id=1800263692]
 libraries/ = SubResource("AnimationLibrary_p57ef")
+
+[node name="fade_scream" type="AnimationPlayer" parent="fade_transition" unique_id=1238355044]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
 
 [node name="fade_timer" type="Timer" parent="fade_transition" unique_id=1558939274]
 wait_time = 2.5
 one_shot = true
 
-[node name="Panel" type="Panel" parent="." unique_id=277334893]
+[node name="shop_panel" type="Panel" parent="." unique_id=277334893]
 visible = false
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -183,7 +254,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
 script = ExtResource("4_lbhrr")
 
-[node name="Label" type="Label" parent="Panel" unique_id=1809313289]
+[node name="shop_label" type="Label" parent="shop_panel" unique_id=1809313289]
 layout_mode = 0
 offset_left = 207.0
 offset_top = 10.0
@@ -192,7 +263,7 @@ offset_bottom = 57.0
 theme_override_font_sizes/font_size = 32
 text = "Shop"
 
-[node name="exit_shop" type="Button" parent="Panel" unique_id=1545625777]
+[node name="exit_shop" type="Button" parent="shop_panel" unique_id=1545625777]
 layout_mode = 0
 offset_left = 361.0
 offset_top = 9.0
@@ -205,7 +276,28 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0scb4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0scb4")
 text = "EXIT"
 
+[node name="plant_bars" parent="." unique_id=829884784 instance=ExtResource("5_iywne")]
+offset_left = 1.0
+offset_top = 209.0
+offset_right = 198.0
+offset_bottom = 274.0
+
+[node name="plant" parent="." unique_id=809955899 instance=ExtResource("6_p57ef")]
+
+[node name="click" type="AudioStreamPlayer2D" parent="." unique_id=914892574]
+stream = ExtResource("7_u5sy4")
+volume_db = 1.5
+bus = &"SFX"
+
+[node name="scream" type="AudioStreamPlayer2D" parent="." unique_id=1717105419]
+position = Vector2(6.1035156e-05, -3.0517578e-05)
+stream = ExtResource("8_gee14")
+bus = &"SFX"
+
+[node name="background_music" parent="." unique_id=1969795133 instance=ExtResource("9_0tnpc")]
+autoplay = true
+
 [connection signal="pressed" from="button_manager/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="button_manager/advance_day" to="." method="_on_advance_day_pressed"]
 [connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
-[connection signal="pressed" from="Panel/exit_shop" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="shop_panel/exit_shop" to="." method="_on_exit_shop_pressed"]
