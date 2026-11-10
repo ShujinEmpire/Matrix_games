@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<rect x="16" y="9" width="32" height="46" rx="5" fill="#fff1ce" stroke="#2e493e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="17.000,18.000 47.000,18.000" fill="none" stroke="#2e493e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="23.000,12.000 26.000,15.000 30.000,12.000 34.000,15.000 39.000,12.000 43.000,15.000" fill="none" stroke="#ceae7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="32.0" cy="37.5" rx="7.0" ry="8.5" fill="#e7a34e" stroke="#2e493e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="31.000,40.000 33.000,30.000" fill="none" stroke="#456e4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="33.000,30.000 32.932,28.740 33.045,27.623 33.319,26.644 33.733,25.797 34.263,25.078 34.889,24.481 35.589,24.002 36.342,23.635 37.125,23.375 37.918,23.217 38.698,23.155 39.444,23.185 40.135,23.302 40.749,23.499 41.264,23.773 41.658,24.118 41.911,24.529 42.000,25.000 41.649,25.797 41.263,26.521 40.847,27.176 40.403,27.763 39.935,28.284 39.444,28.741 38.936,29.136 38.412,29.472 37.875,29.750 37.329,29.973 36.777,30.142 36.222,30.259 35.667,30.328 35.115,30.348 34.569,30.324 34.033,30.257 33.509,30.148 33.000,30.000" fill="#78aa72" stroke="#2e493e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

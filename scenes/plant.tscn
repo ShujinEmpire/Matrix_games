@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d0mpgrti5furk"]
+
+[ext_resource type="SpriteFrames" uid="uid://clkw51s5k4oou" path="res://assets/sprites/plant_spritesheet.tres" id="1_6e84v"]
+
+[node name="plant" type="Node2D" unique_id=809955899]
+
+[node name="plant_sprite" type="AnimatedSprite2D" parent="." unique_id=986953284]
+visibility_layer = 2
+position = Vector2(603, 345)
+scale = Vector2(0.9208317, 0.9434692)
+sprite_frames = ExtResource("1_6e84v")

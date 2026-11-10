@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://buhk620dpgxn2"]
+
+[ext_resource type="Script" uid="uid://ca7r1yqe4iisa" path="res://scripts/game_over.gd" id="1_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://vmsdprq5javt" path="res://assets/images/game_over.png" id="2_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://cridu4jd8gkdl" path="res://assets/images/quit_button.png" id="3_irg28"]
+[ext_resource type="Texture2D" uid="uid://dl185lows76ei" path="res://assets/images/try_again.png" id="4_2jtsn"]
+[ext_resource type="AudioStream" uid="uid://bvibl56oiei86" path="res://assets/sound/sega-rally-15-game-over-yeah1.mp3" id="5_8bugq"]
+[ext_resource type="AudioStream" uid="uid://cn42v2q2iy8xe" path="res://assets/sound/tuco-get-out.mp3" id="6_v3hpu"]
+
+[node name="Control" type="Control" unique_id=1633880059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7m3ot")
+
+[node name="background" type="TextureRect" parent="." unique_id=723723837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -27.000002
+offset_right = 493.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7132406, 0.68460107)
+texture = ExtResource("2_v3hpu")
+
+[node name="quit_button" type="TextureButton" parent="." unique_id=1539734146]
+layout_mode = 0
+offset_left = 728.99994
+offset_top = 503.0
+offset_right = 2901.0
+offset_bottom = 1227.0
+scale = Vector2(0.15745796, 0.16216044)
+texture_normal = ExtResource("3_irg28")
+texture_pressed = ExtResource("3_irg28")
+texture_hover = ExtResource("3_irg28")
+
+[node name="try_again_button" type="TextureButton" parent="." unique_id=733420188]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 494.0
+offset_right = 2253.0
+offset_bottom = 1218.0
+scale = Vector2(0.16657922, 0.18516634)
+texture_normal = ExtResource("4_2jtsn")
+texture_pressed = ExtResource("4_2jtsn")
+texture_hover = ExtResource("4_2jtsn")
+
+[node name="game_over_yeah" type="AudioStreamPlayer2D" parent="." unique_id=1987261683]
+stream = ExtResource("5_8bugq")
+autoplay = true
+bus = &"Music"
+
+[node name="get_out" type="AudioStreamPlayer2D" parent="." unique_id=1986183982]
+stream = ExtResource("6_v3hpu")
+bus = &"Music"
+
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="try_again_button" to="." method="_on_try_again_button_pressed"]

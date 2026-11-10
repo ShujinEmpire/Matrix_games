@@ -1,0 +1,88 @@
+{
+  "status": "free release v0.1",
+  "new_icons": 8,
+  "svg_count": 8,
+  "png_count": 32,
+  "assets": [
+    {
+      "name": "carrot",
+      "svg": "svg/carrot.svg",
+      "png": {
+        "32": "png/32/carrot.png",
+        "64": "png/64/carrot.png",
+        "128": "png/128/carrot.png",
+        "256": "png/256/carrot.png"
+      }
+    },
+    {
+      "name": "turnip",
+      "svg": "svg/turnip.svg",
+      "png": {
+        "32": "png/32/turnip.png",
+        "64": "png/64/turnip.png",
+        "128": "png/128/turnip.png",
+        "256": "png/256/turnip.png"
+      }
+    },
+    {
+      "name": "tomato",
+      "svg": "svg/tomato.svg",
+      "png": {
+        "32": "png/32/tomato.png",
+        "64": "png/64/tomato.png",
+        "128": "png/128/tomato.png",
+        "256": "png/256/tomato.png"
+      }
+    },
+    {
+      "name": "wheat",
+      "svg": "svg/wheat.svg",
+      "png": {
+        "32": "png/32/wheat.png",
+        "64": "png/64/wheat.png",
+        "128": "png/128/wheat.png",
+        "256": "png/256/wheat.png"
+      }
+    },
+    {
+      "name": "coin",
+      "svg": "svg/coin.svg",
+      "png": {
+        "32": "png/32/coin.png",
+        "64": "png/64/coin.png",
+        "128": "png/128/coin.png",
+        "256": "png/256/coin.png"
+      }
+    },
+    {
+      "name": "sun",
+      "svg": "svg/sun.svg",
+      "png": {
+        "32": "png/32/sun.png",
+        "64": "png/64/sun.png",
+        "128": "png/128/sun.png",
+        "256": "png/256/sun.png"
+      }
+    },
+    {
+      "name": "moon",
+      "svg": "svg/moon.svg",
+      "png": {
+        "32": "png/32/moon.png",
+        "64": "png/64/moon.png",
+        "128": "png/128/moon.png",
+        "256": "png/256/moon.png"
+      }
+    },
+    {
+      "name": "heart",
+      "svg": "svg/heart.svg",
+      "png": {
+        "32": "png/32/heart.png",
+        "64": "png/64/heart.png",
+        "128": "png/128/heart.png",
+        "256": "png/256/heart.png"
+      }
+    }
+  ]
+}

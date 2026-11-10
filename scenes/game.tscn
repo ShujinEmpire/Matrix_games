@@ -1,0 +1,558 @@
+[gd_scene format=3 uid="uid://0a75i4f77n3u"]
+
+[ext_resource type="Script" uid="uid://c5vu5qfh27dn5" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://t6lbmg8jj0hy" path="res://assets/images/blue_background.jpg" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://m3v6qexah585" path="res://scripts/button_manager.gd" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://c68pooj577yn5" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/seed_packet.png" id="4_ca42v"]
+[ext_resource type="Script" uid="uid://b1c41s72tg6xv" path="res://scripts/panel.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://xt4roojiy80a" path="res://scenes/plant_bars.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://d0mpgrti5furk" path="res://scenes/plant.tscn" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://ds2snn26unefy" path="res://assets/sprouts_lands/Farming_icons/seedling-farming-expansion/png/64/sun.png" id="7_rysoc"]
+[ext_resource type="AudioStream" uid="uid://ib4n7q6nbb6o" path="res://assets/sound/minecraft-click_0JTy0CI6.mp3" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://e4psi33o4p8l" path="res://assets/sound/chicken-on-tree-screaming.mp3" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dkacsuvx10fn4" path="res://scenes/background_music.tscn" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://c63fbloebubaw" path="res://assets/sprouts_lands/Sprite sheets/buttons/Square Buttons 26x19.png" id="10_kvpfn"]
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="11_dinhu"]
+[ext_resource type="Texture2D" uid="uid://b056sm1ve56ad" path="res://assets/sprouts_lands/Farming_icons/seedling-farming-expansion/RPG_Stat_MP_Mana_Star.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://55b8cb3u0504" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/harvest_basket.png" id="14_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://43p6eew7sq43" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/water_drop.png" id="15_264po"]
+[ext_resource type="Texture2D" uid="uid://6e2tw1nr18ri" path="res://assets/sprouts_lands/Farming_icons/seedling-farming-expansion/png/64/coin.png" id="17_rysoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
+bg_color = Color(0.39470178, 0.6843289, 0.32645866, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.30953833, 0.51201653, 0.2423588, 0.6)
+shadow_size = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w1ug"]
+atlas = ExtResource("10_kvpfn")
+region = Rect2(56, 67, 33, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnbpa"]
+texture = SubResource("AtlasTexture_0w1ug")
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
+texture = ExtResource("10_kvpfn")
+region_rect = Rect2(54, 66, 37, 27)
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dinhu"]
+texture = ExtResource("10_kvpfn")
+region_rect = Rect2(55, 67, 34, 24)
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ren0k"]
+bg_color = Color(0.9647059, 0.8745098, 0.7529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Animation" id="Animation_lnu2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iywne"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
+_data = {
+&"RESET": SubResource("Animation_lnu2h"),
+&"fade_in": SubResource("Animation_gee14"),
+&"fade_out": SubResource("Animation_iywne")
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("scream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "fade_out"
+length = 4.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("scream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.4, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_0tnpc"),
+&"fade_out": SubResource("Animation_vtaks")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
+bg_color = Color(0.40392157, 0.6784314, 0.39607844, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0scb4"]
+bg_color = Color(0.40392157, 0.6784314, 0.39607844, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_546in"]
+bg_color = Color(0.9647059, 0.8745098, 0.7529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6mh8"]
+bg_color = Color(0.8666667, 0.7137255, 0.6117647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsicu"]
+atlas = ExtResource("10_kvpfn")
+region = Rect2(58, 6, 28, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfoky"]
+bg_color = Color(0.59607846, 0.4117647, 0.30980393, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.9647059, 0.8745098, 0.7529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Game" type="Node2D" unique_id=1160167892]
+script = ExtResource("1_yqjtg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1491007825]
+position = Vector2(577, 325.00003)
+scale = Vector2(2.1654344, 1.875)
+texture = ExtResource("2_yqjtg")
+
+[node name="button_manager" type="Control" parent="." unique_id=605787759]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -26.5
+offset_right = 72.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_lnu2h")
+
+[node name="shop" type="Button" parent="button_manager" unique_id=984774741]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 963.0
+offset_top = 29.5
+offset_right = 1147.0
+offset_bottom = 86.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr3o2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cr3o2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cr3o2")
+text = "shop
+"
+icon = ExtResource("4_ca42v")
+
+[node name="advance_day" type="Button" parent="button_manager" unique_id=1393249366]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.036000002
+anchor_top = -0.109000005
+anchor_right = -0.036000002
+anchor_bottom = -0.109000005
+offset_left = 922.72
+offset_top = 565.277
+offset_right = 1255.72
+offset_bottom = 693.277
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_cnbpa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kvuet")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dinhu")
+text = "SKIP DAY
+"
+
+[node name="DayIcon" type="TextureRect" parent="button_manager/advance_day" unique_id=1435928672]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 34.0
+offset_right = 122.0
+offset_bottom = 98.0
+texture = ExtResource("7_rysoc")
+
+[node name="DayPanel" type="Panel" parent="." unique_id=1836804569]
+custom_minimum_size = Vector2(180, 75)
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 247.0
+offset_bottom = 77.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ren0k")
+
+[node name="day_label" type="Label" parent="." unique_id=116126381]
+offset_left = 29.0
+offset_top = 4.0
+offset_right = 199.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0.32941177, 0.21568628, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 32
+text = "Day: day:int"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fade_transition" type="ColorRect" parent="." unique_id=932788367]
+visible = false
+z_index = 1
+offset_left = -33.0
+offset_top = -31.0
+offset_right = 1175.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="fade_animation" type="AnimationPlayer" parent="fade_transition" unique_id=1800263692]
+libraries/ = SubResource("AnimationLibrary_p57ef")
+
+[node name="fade_scream" type="AnimationPlayer" parent="fade_transition" unique_id=1238355044]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="fade_timer" type="Timer" parent="fade_transition" unique_id=1558939274]
+wait_time = 2.5
+one_shot = true
+
+[node name="shop_panel" type="Panel" parent="." unique_id=277334893]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = 119.0
+offset_right = 821.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
+script = ExtResource("4_lbhrr")
+
+[node name="shop_label" type="Label" parent="shop_panel" unique_id=1809313289]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 32
+text = "Shop"
+
+[node name="exit_shop" type="Button" parent="shop_panel" unique_id=1545625777]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 9.0
+offset_right = 485.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.7923222, 0.21630847, 0.1601825, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_0scb4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0scb4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0scb4")
+text = "EXIT"
+
+[node name="PlantStatusPanel" type="Panel" parent="." unique_id=517209379]
+offset_left = 6.0
+offset_top = 99.0
+offset_right = 356.0
+offset_bottom = 331.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_546in")
+
+[node name="StatusHeader" type="Panel" parent="PlantStatusPanel" unique_id=1024208683]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 45.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6mh8")
+
+[node name="Label" type="Label" parent="PlantStatusPanel" unique_id=65688753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 9.0
+offset_right = -1.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.32941177, 0.21568628, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 21
+text = "Plant Status"
+horizontal_alignment = 1
+
+[node name="plant_bars" parent="." unique_id=829884784 instance=ExtResource("5_iywne")]
+offset_left = 35.0
+offset_top = 168.0
+offset_right = 232.0
+offset_bottom = 233.0
+
+[node name="plant" parent="." unique_id=809955899 instance=ExtResource("6_p57ef")]
+
+[node name="click" type="AudioStreamPlayer2D" parent="." unique_id=914892574]
+stream = ExtResource("7_u5sy4")
+volume_db = 1.5
+bus = &"SFX"
+
+[node name="scream" type="AudioStreamPlayer2D" parent="." unique_id=1717105419]
+position = Vector2(6.1035156e-05, -3.0517578e-05)
+stream = ExtResource("8_gee14")
+bus = &"SFX"
+
+[node name="background_music" parent="." unique_id=1969795133 instance=ExtResource("9_0tnpc")]
+autoplay = true
+
+[node name="GameUI" type="Control" parent="." unique_id=1226912070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FeedButton" type="TextureButton" parent="GameUI" unique_id=2133797384]
+modulate = Color(0.8862745, 0.6313726, 0.56078434, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 26.0
+offset_top = 543.0
+offset_right = 246.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GameUI/FeedButton" unique_id=1861587817]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 32
+text = "FEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedIcon" type="TextureRect" parent="GameUI/FeedButton" unique_id=770832520]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 86.0
+texture = ExtResource("14_ssvqc")
+
+[node name="WaterButton" type="TextureButton" parent="GameUI" unique_id=1354330009]
+modulate = Color(0.56078434, 0.77254903, 0.84705883, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 309.0
+offset_top = 543.0
+offset_right = 530.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GameUI/WaterButton" unique_id=506958916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 18.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 32
+text = "WATER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterIcon" type="TextureRect" parent="GameUI/WaterButton" unique_id=582383596]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 29.0
+offset_right = 94.0
+offset_bottom = 93.0
+texture = ExtResource("15_264po")
+
+[node name="CareButton" type="TextureButton" parent="GameUI" unique_id=446507442]
+modulate = Color(0.9098039, 0.7254902, 0.43529412, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 591.0
+offset_top = 543.0
+offset_right = 815.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GameUI/CareButton" unique_id=1508075310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("11_dinhu")
+theme_override_font_sizes/font_size = 32
+text = "CARE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CareIcon" type="TextureRect" parent="GameUI/CareButton" unique_id=1134656078]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = 86.0
+offset_bottom = 78.0
+texture = ExtResource("12_dinhu")
+
+[node name="CoinPanel" type="Panel" parent="." unique_id=588985805]
+offset_left = 502.0
+offset_top = 1.0
+offset_right = 702.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rfoky")
+
+[node name="CoinIcon" type="TextureRect" parent="CoinPanel" unique_id=1862579074]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 50.0
+texture = ExtResource("17_rysoc")
+expand_mode = 1
+
+[connection signal="pressed" from="button_manager/shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="button_manager/advance_day" to="." method="_on_advance_day_pressed"]
+[connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="shop_panel/exit_shop" to="." method="_on_exit_shop_pressed"]
