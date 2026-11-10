@@ -1,6 +1,7 @@
 extends Control
 
 @onready var click: AudioStreamPlayer2D = $click
+@onready var settings: Panel = $settings_main_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,10 +21,15 @@ func _on_start_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	click.play()
-	print("Setting Pressed")
+	settings.show()
 
 
 func _on_exit_pressed() -> void:
 	click.play()
 	await click.finished
 	get_tree().quit()
+
+
+func _on_exit_settings_2_pressed() -> void:
+	click.play()
+	settings.hide()

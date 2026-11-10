@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ftj4ugygdlwj"]
+
+[ext_resource type="PackedScene" uid="uid://1erj0i1ublio" path="res://scenes/settings.tscn" id="1_i4r0b"]
+[ext_resource type="Script" uid="uid://df3kfwm2k046j" path="res://scenes/settings_main_menu.gd" id="2_p0lr1"]
+
+[node name="settings_main_menu" unique_id=1614109875 instance=ExtResource("1_i4r0b")]
+script = ExtResource("2_p0lr1")
+
+[node name="quit" parent="." index="0" unique_id=254330136]
+visible = false
+
+[node name="exit_settings" parent="." index="1" unique_id=1476867230]
+visible = false

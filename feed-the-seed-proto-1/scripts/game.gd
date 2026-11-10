@@ -3,7 +3,7 @@ extends Node2D
 var day:int = 1
 var button_type = null
 var prob:float 
-
+@onready var coins := 0
 @onready var fade_scream: AnimationPlayer = $fade_transition/fade_scream
 @onready var click: AudioStreamPlayer2D = $click
 @onready var button_manager: Control = $button_manager
@@ -16,7 +16,8 @@ func _ready() -> void:
 	print(str(prob)) 
 	day_label.text = "Day: " + str(day)
 	$plant_bars.update_bars(plant_health, plant_hydrate)
-
+	$coins_count.text = "Coins: " + str(coins)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -49,6 +50,10 @@ func _on_fade_timer_timeout() -> void:
 	if plant_health <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	day_label.text = "Day: " + str(day)
+	if day == 5: 
+		$plant/plant_sprite.set_animation("seedling") 
+	elif day == 15:
+		$plant/plant_sprite.set_animation("sprout") 
 	$plant_bars.update_bars(plant_health, plant_hydrate)
 	
 	if prob > 0 and prob <= .1:
@@ -70,3 +75,9 @@ func _on_exit_shop_pressed() -> void:
 	#$button_manager/shop.disabled = false
 	#$button_manager/advance_day.disabled = false
 	button_manager.visible = true
+
+
+func _on_settings_pressed() -> void:
+	click.play()
+	button_manager.hide()
+	$settings.show()

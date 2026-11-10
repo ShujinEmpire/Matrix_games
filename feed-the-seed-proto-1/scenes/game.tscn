@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ib4n7q6nbb6o" path="res://assets/sound/minecraft-click_0JTy0CI6.mp3" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://e4psi33o4p8l" path="res://assets/sound/chicken-on-tree-screaming.mp3" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://dkacsuvx10fn4" path="res://scenes/background_music.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://1erj0i1ublio" path="res://scenes/settings.tscn" id="10_vtaks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
 bg_color = Color(0.39470178, 0.6843289, 0.32645866, 1)
@@ -20,6 +21,33 @@ shadow_color = Color(0.30953833, 0.51201653, 0.2423588, 0.6)
 shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwrxv"]
+bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.30448252, 0.32208288, 0.730162, 0.6)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir15t"]
+bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.30448252, 0.32208288, 0.730162, 0.6)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca42v"]
+bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.30448252, 0.32208288, 0.730162, 0.6)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
 bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -209,6 +237,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_uwrxv")
 text = "Adavance Day
 "
 
+[node name="settings" type="Button" parent="button_manager" unique_id=1634096015]
+layout_mode = 0
+offset_left = 81.5
+offset_top = 35.5
+offset_right = 279.5
+offset_bottom = 79.5
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rysoc")
+text = "Settings"
+
 [node name="day_label" type="Label" parent="." unique_id=116126381]
 offset_left = 819.0
 offset_top = 597.0
@@ -297,7 +337,23 @@ bus = &"SFX"
 [node name="background_music" parent="." unique_id=1969795133 instance=ExtResource("9_0tnpc")]
 autoplay = true
 
+[node name="coins_count" type="Label" parent="." unique_id=2124105320]
+offset_left = 511.0
+offset_top = 14.0
+offset_right = 720.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
+text = "Coins_Int"
+
+[node name="settings" parent="." unique_id=1614109875 instance=ExtResource("10_vtaks")]
+visible = false
+offset_left = 298.0
+offset_top = 160.0
+offset_right = 923.0
+offset_bottom = 516.0
+
 [connection signal="pressed" from="button_manager/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="button_manager/advance_day" to="." method="_on_advance_day_pressed"]
+[connection signal="pressed" from="button_manager/settings" to="." method="_on_settings_pressed"]
 [connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="shop_panel/exit_shop" to="." method="_on_exit_shop_pressed"]

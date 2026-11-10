@@ -63,7 +63,7 @@ bus = &"Music"
 
 [node name="get_out" type="AudioStreamPlayer2D" parent="." unique_id=1986183982]
 stream = ExtResource("6_v3hpu")
-bus = &"Music"
+bus = &"SFX"
 
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="try_again_button" to="." method="_on_try_again_button_pressed"]

@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://b45hc1g3j3xp4" path="res://scripts/scroll.gdshader" id="3_nlkkf"]
 [ext_resource type="AudioStream" uid="uid://dojl6r3ry8gsw" path="res://assets/sound/GlitchCat, prodBigMike - whatdoyousee [NCS Release].mp3" id="6_rtw2f"]
 [ext_resource type="AudioStream" uid="uid://ib4n7q6nbb6o" path="res://assets/sound/minecraft-click_0JTy0CI6.mp3" id="7_oa1go"]
+[ext_resource type="PackedScene" uid="uid://ftj4ugygdlwj" path="res://scenes/settings_main_menu.tscn" id="8_tbmy8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glbon"]
 shader = ExtResource("3_nlkkf")
@@ -55,6 +56,15 @@ shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
 [node name="MainMenu" type="Control" unique_id=340290924]
 layout_mode = 3
 anchors_preset = 15
@@ -75,10 +85,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -607.0
-offset_top = -300.0
-offset_right = 607.0
-offset_bottom = 385.0
+offset_left = -562.0
+offset_top = -289.0
+offset_right = 652.0
+offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_06t4h")
@@ -91,9 +101,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -230.5
-offset_top = -98.0
+offset_top = -121.0
 offset_right = 186.5
-offset_bottom = 146.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -143,17 +153,13 @@ text = "Exit
 
 [node name="Label" type="Label" parent="." unique_id=917420575]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -309.5
-offset_top = -286.0
-offset_right = 283.5
-offset_bottom = -173.0
+offset_left = -296.5
+offset_right = 296.5
+offset_bottom = 113.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6862745)
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("2_7vrkn")
@@ -172,6 +178,27 @@ stream = ExtResource("6_rtw2f")
 autoplay = true
 bus = &"Music"
 
+[node name="settings_main_menu" parent="." unique_id=1614109875 instance=ExtResource("8_tbmy8")]
+visible = false
+layout_mode = 1
+
+[node name="exit_settings2" type="Button" parent="settings_main_menu" unique_id=1166318876]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
+text = "EXIT"
+
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/setting_button" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="settings_main_menu/exit_settings2" to="." method="_on_exit_settings_2_pressed"]

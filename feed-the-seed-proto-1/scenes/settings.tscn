@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://1erj0i1ublio"]
+
+[ext_resource type="Script" uid="uid://cu0uk3ai3a5v6" path="res://scripts/settings.gd" id="1_f4mfi"]
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="2_es4n0"]
+[ext_resource type="Script" uid="uid://ckyyxvctrcru0" path="res://scripts/music.gd" id="3_gis3k"]
+[ext_resource type="Script" uid="uid://c6rnuwi625r6a" path="res://scripts/sfx.gd" id="4_83j8s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trtic"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37s47"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kice"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5newe"]
+bg_color = Color(0.6467749, 0.83246994, 0.5290699, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_37s47"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bt5mj"]
+color = Color(0, 0.64705884, 0, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e1j6l"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[node name="settings" type="Panel" unique_id=1614109875]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -178.0
+offset_right = 312.5
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ssvqc")
+script = ExtResource("1_f4mfi")
+
+[node name="quit" type="Button" parent="." unique_id=254330136]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.5
+offset_top = -104.0
+offset_right = 93.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_es4n0")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_37s47")
+text = "QUIT"
+
+[node name="exit_settings" type="Button" parent="." unique_id=1476867230]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 2.0
+offset_right = 624.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_es4n0")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_264po")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1kice")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5newe")
+text = "EXIT"
+
+[node name="settings" type="Label" parent="." unique_id=2103614951]
+layout_mode = 0
+offset_left = 228.0
+offset_right = 433.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_es4n0")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="Music" type="HSlider" parent="." unique_id=1034526901]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 120.0
+offset_right = 392.0
+offset_bottom = 137.0
+theme_override_styles/slider = SubResource("StyleBoxLine_37s47")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bt5mj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bt5mj")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_gis3k")
+audio_bus_name = "Music"
+
+[node name="music" type="Label" parent="Music" unique_id=1270711414]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -33.0
+offset_right = 86.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("2_es4n0")
+theme_override_font_sizes/font_size = 32
+text = "MUSIC"
+
+[node name="SFX" type="HSlider" parent="." unique_id=1438196152]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 175.0
+offset_right = 393.0
+offset_bottom = 191.0
+theme_override_styles/slider = SubResource("StyleBoxLine_e1j6l")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bt5mj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bt5mj")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_83j8s")
+audio_bus_name = "SFX"
+
+[node name="sfx" type="Label" parent="SFX" unique_id=79694559]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -29.0
+offset_right = 57.0
+offset_bottom = 6.0
+theme_override_fonts/font = ExtResource("2_es4n0")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="exit_settings" to="." method="_on_exit_settings_pressed"]
+[connection signal="value_changed" from="Music" to="Music" method="_on_music_value_changed"]
+[connection signal="value_changed" from="SFX" to="SFX" method="_on_value_changed"]
