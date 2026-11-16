@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://yspn35oes6nc"]
+
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="1_trei5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_546in"]
+bg_color = Color(0.9647059, 0.8745098, 0.7529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6mh8"]
+bg_color = Color(0.8666667, 0.7137255, 0.6117647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[node name="PlantStatusPanel" type="Panel" unique_id=910947613]
+offset_left = 5.0
+offset_top = 163.0
+offset_right = 355.0
+offset_bottom = 395.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_546in")
+
+[node name="StatusHeader" type="Panel" parent="." unique_id=1408646694]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 45.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6mh8")
+
+[node name="Label" type="Label" parent="." unique_id=367736977]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.32941177, 0.21568628, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("1_trei5")
+theme_override_font_sizes/font_size = 21
+text = "Plant Status"
+horizontal_alignment = 1

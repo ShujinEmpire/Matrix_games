@@ -3,45 +3,66 @@ extends Node2D
 var day:int = 1
 var button_type = null
 var prob:float 
-@onready var coins := 0
+
+@onready var coins : int
 @onready var fade_scream: AnimationPlayer = $fade_transition/fade_scream
 @onready var click: AudioStreamPlayer2D = $click
-@onready var button_manager: Control = $button_manager
+@onready var button_manager: Control = $button_manager2
 @onready var plant_health := 100
 @onready var plant_hydrate := 100
 @onready var day_label: Label = $day_label
 @onready var plant: Node2D = $plant
+@onready var game_ui: Control = $GameUI
+@onready var shop: Button = $button_manager2/shop
+@onready var advance_day: Button = $button_manager2/advance_day
+@onready var feed: TextureButton = $GameUI/FeedButton
+@onready var water: TextureButton = $GameUI/WaterButton
+@onready var care: TextureButton = $GameUI/CareButton
 
 func _ready() -> void:
+	coins = 100
 	print(str(prob)) 
 	day_label.text = "Day: " + str(day)
 	$plant_bars.update_bars(plant_health, plant_hydrate)
-	$coins_count.text = "Coins: " + str(coins)
-	
+	$coin_panel/coins_count.text = str(coins)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _on_shop_pressed() -> void:
-	#modulate value: 'afafaf'  
-	#$button_manager.modulate = 'afafaf'
-	#$button_manager/shop.disabled = true
-	#$button_manager/advance_day.disabled = true
-	click.play()
-	button_manager.visible = false
-	$Background.modulate = 'afafaf'
-	plant.hide()
-	$shop_panel.show()
+func get_coins() -> int:
+	return coins
+
+func add_coins(from_coins: int) -> void:
+	coins += from_coins
+	coins = clamp(coins, 0, 1000)
+	$coin_panel/coins_count.text = str(coins)
 
 
-func _on_advance_day_pressed() -> void:
-	prob = randf()
-	print(str(prob))
-	button_type = "advance_day"
-	click.play()
-	$fade_transition.show()
-	$fade_transition/fade_animation.play("fade_in")
-	$fade_transition/fade_timer.start()
+func sub_coins(from_coins: int) -> void:
+	coins -= from_coins
+	coins = clamp(coins, 0, 1000)
+	$coin_panel/coins_count.text = str(coins)
+
+
+
+func add_health(health: int) -> void:
+	plant_health += health
+	plant_health = clamp(plant_health,0,100)
+	$plant_bars.update_bars(plant_health, plant_hydrate)
+
+func get_health() -> int:
+	return plant_health
+
+
+func add_hydrate(hydrate: int) -> void:
+	plant_hydrate += hydrate
+	plant_hydrate = clamp(plant_hydrate,0,100)
+	$plant_bars.update_bars(plant_health, plant_hydrate)
+
+func get_hydrate() -> int:
+	return plant_hydrate
+
 
 func _on_fade_timer_timeout() -> void:
 	day += 1
@@ -54,30 +75,43 @@ func _on_fade_timer_timeout() -> void:
 		$plant/plant_sprite.set_animation("seedling") 
 	elif day == 15:
 		$plant/plant_sprite.set_animation("sprout") 
+		
 	$plant_bars.update_bars(plant_health, plant_hydrate)
 	
+	prob = button_manager.get_prob()
 	if prob > 0 and prob <= .1:
 		fade_scream.play("fade_out")
 		await fade_scream.animation_finished
 		$fade_transition.hide()
+		shop.disabled = false
+		advance_day.disabled = false
+		feed.disabled = false
+		water.disabled = false
+		care.disabled = false
 	else:
 		$fade_transition/fade_animation.play("fade_out")
 		await $fade_transition/fade_animation.animation_finished
 		$fade_transition.hide()
+		shop.disabled = false
+		advance_day.disabled = false
+		feed.disabled = false
+		water.disabled = false
+		care.disabled = false
+
 
 
 func _on_exit_shop_pressed() -> void:
-	#$button_manager.modulate = 'ffffff'
 	click.play()
 	$Background.modulate = 'ffffff'
 	plant.show()
 	$shop_panel.hide()
-	#$button_manager/shop.disabled = false
-	#$button_manager/advance_day.disabled = false
 	button_manager.visible = true
+	game_ui.show()
+	$settings2.show()
 
 
 func _on_settings_pressed() -> void:
 	click.play()
 	button_manager.hide()
+	game_ui.hide()
 	$settings.show()

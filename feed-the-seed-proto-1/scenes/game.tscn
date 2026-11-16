@@ -2,32 +2,19 @@
 
 [ext_resource type="Script" uid="uid://c5vu5qfh27dn5" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://t6lbmg8jj0hy" path="res://assets/images/blue_background.jpg" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://m3v6qexah585" path="res://scripts/button_manager.gd" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://b1c41s72tg6xv" path="res://scripts/panel.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c0h4a1tonj0s3" path="res://scenes/day_panel.tscn" id="3_ir15t"]
+[ext_resource type="PackedScene" uid="uid://des41w66gu8p6" path="res://scenes/coin_panel.tscn" id="3_kvuet"]
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="4_trtic"]
 [ext_resource type="PackedScene" uid="uid://xt4roojiy80a" path="res://scenes/plant_bars.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://yspn35oes6nc" path="res://scenes/plant_status_panel.tscn" id="6_ca42v"]
 [ext_resource type="PackedScene" uid="uid://d0mpgrti5furk" path="res://scenes/plant.tscn" id="6_p57ef"]
 [ext_resource type="AudioStream" uid="uid://ib4n7q6nbb6o" path="res://assets/sound/minecraft-click_0JTy0CI6.mp3" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://e4psi33o4p8l" path="res://assets/sound/chicken-on-tree-screaming.mp3" id="8_gee14"]
+[ext_resource type="Script" uid="uid://optr7sspifb2" path="res://scripts/shop_panel.gd" id="8_ir15t"]
 [ext_resource type="PackedScene" uid="uid://dkacsuvx10fn4" path="res://scenes/background_music.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://xtng1w4di8yy" path="res://scenes/game_ui.tscn" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://1erj0i1ublio" path="res://scenes/settings.tscn" id="10_vtaks"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
-bg_color = Color(0.39470178, 0.6843289, 0.32645866, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.30953833, 0.51201653, 0.2423588, 0.6)
-shadow_size = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwrxv"]
-bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.30448252, 0.32208288, 0.730162, 0.6)
-shadow_size = 4
+[ext_resource type="PackedScene" uid="uid://bgmcp5ahfpue4" path="res://scenes/button_manager.tscn" id="11_dinhu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir15t"]
 bg_color = Color(0.3134358, 0.5433818, 0.86341584, 1)
@@ -187,62 +174,30 @@ position = Vector2(577, 325.00003)
 scale = Vector2(2.1654344, 1.875)
 texture = ExtResource("2_yqjtg")
 
-[node name="button_manager" type="Control" parent="." unique_id=605787759]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -26.5
-offset_right = 72.5
-offset_bottom = 26.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_lnu2h")
+[node name="plant" parent="." unique_id=809955899 instance=ExtResource("6_p57ef")]
+position = Vector2(0.00012207031, 3)
 
-[node name="shop" type="Button" parent="button_manager" unique_id=984774741]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 963.0
-offset_top = 29.5
-offset_right = 1147.0
-offset_bottom = 86.5
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_cr3o2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cr3o2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cr3o2")
-text = "shop
-"
+[node name="DayPanel" parent="." unique_id=308189022 instance=ExtResource("3_ir15t")]
 
-[node name="advance_day" type="Button" parent="button_manager" unique_id=1393249366]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.036000002
-anchor_top = -0.109000005
-anchor_right = -0.036000002
-anchor_bottom = -0.109000005
-offset_left = 1021.72
-offset_top = 616.277
-offset_right = 1225.72
-offset_bottom = 675.277
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_uwrxv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_uwrxv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uwrxv")
-text = "Adavance Day
-"
+[node name="coin_panel" parent="." unique_id=1816223565 instance=ExtResource("3_kvuet")]
+offset_top = 4.0
+offset_bottom = 59.0
 
-[node name="settings" type="Button" parent="button_manager" unique_id=1634096015]
+[node name="coins_count" type="Label" parent="coin_panel" unique_id=2124105320]
 layout_mode = 0
-offset_left = 81.5
-offset_top = 35.5
-offset_right = 279.5
-offset_bottom = 79.5
+offset_left = 94.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("4_trtic")
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="settings2" type="Button" parent="." unique_id=1634096015]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 207.0
+offset_bottom = 53.0
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ca42v")
@@ -250,12 +205,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rysoc")
 text = "Settings"
 
 [node name="day_label" type="Label" parent="." unique_id=116126381]
-offset_left = 819.0
-offset_top = 597.0
-offset_right = 950.0
-offset_bottom = 653.0
+offset_left = 31.0
+offset_top = 100.0
+offset_right = 201.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("4_trtic")
 theme_override_font_sizes/font_size = 32
 text = "Day: day:int"
+
+[node name="PlantStatusPanel" parent="." unique_id=910947613 instance=ExtResource("6_ca42v")]
 
 [node name="fade_transition" type="ColorRect" parent="." unique_id=932788367]
 visible = false
@@ -292,7 +250,7 @@ offset_bottom = 514.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
-script = ExtResource("4_lbhrr")
+script = ExtResource("8_ir15t")
 
 [node name="shop_label" type="Label" parent="shop_panel" unique_id=1809313289]
 layout_mode = 0
@@ -317,12 +275,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0scb4")
 text = "EXIT"
 
 [node name="plant_bars" parent="." unique_id=829884784 instance=ExtResource("5_iywne")]
-offset_left = 1.0
-offset_top = 209.0
-offset_right = 198.0
-offset_bottom = 274.0
-
-[node name="plant" parent="." unique_id=809955899 instance=ExtResource("6_p57ef")]
+offset_left = 19.0
+offset_top = 231.0
+offset_right = 216.0
+offset_bottom = 296.0
 
 [node name="click" type="AudioStreamPlayer2D" parent="." unique_id=914892574]
 stream = ExtResource("7_u5sy4")
@@ -337,14 +293,6 @@ bus = &"SFX"
 [node name="background_music" parent="." unique_id=1969795133 instance=ExtResource("9_0tnpc")]
 autoplay = true
 
-[node name="coins_count" type="Label" parent="." unique_id=2124105320]
-offset_left = 511.0
-offset_top = 14.0
-offset_right = 720.0
-offset_bottom = 61.0
-theme_override_font_sizes/font_size = 30
-text = "Coins_Int"
-
 [node name="settings" parent="." unique_id=1614109875 instance=ExtResource("10_vtaks")]
 visible = false
 offset_left = 298.0
@@ -352,8 +300,14 @@ offset_top = 160.0
 offset_right = 923.0
 offset_bottom = 516.0
 
-[connection signal="pressed" from="button_manager/shop" to="." method="_on_shop_pressed"]
-[connection signal="pressed" from="button_manager/advance_day" to="." method="_on_advance_day_pressed"]
-[connection signal="pressed" from="button_manager/settings" to="." method="_on_settings_pressed"]
+[node name="GameUI" parent="." unique_id=1844800265 instance=ExtResource("10_kvpfn")]
+
+[node name="button_manager2" parent="." unique_id=1048232435 instance=ExtResource("11_dinhu")]
+offset_left = -76.0
+offset_top = -29.0
+offset_right = 69.0
+offset_bottom = 24.0
+
+[connection signal="pressed" from="settings2" to="." method="_on_settings_pressed"]
 [connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="shop_panel/exit_shop" to="." method="_on_exit_shop_pressed"]

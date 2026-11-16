@@ -73,7 +73,7 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
 theme_override_styles/hover = SubResource("StyleBoxFlat_37s47")
-text = "QUIT"
+text = "QUIT GAME"
 
 [node name="exit_settings" type="Button" parent="." unique_id=1476867230]
 layout_mode = 0
