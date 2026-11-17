@@ -10,13 +10,23 @@ extends Control
 @onready var coins : int
 @onready var plant_health : int
 @onready var plant_hydrate : int
+@onready var plant_growth : int
 @onready var click: AudioStreamPlayer2D = $"../click"
 
 
 func _on_feed_button_pressed() -> void:
 	click.play()
-	print("feed")
-
+	coins = game.get_coins()
+	plant_growth = game.get_growth()
+	
+	if coins < 10:
+		return
+	if plant_growth == 100:
+		return
+		
+	game.add_growth(10)
+	game.sub_coins(10)
+	
 
 func _on_feed_button_mouse_entered() -> void:
 	if feed.disabled:

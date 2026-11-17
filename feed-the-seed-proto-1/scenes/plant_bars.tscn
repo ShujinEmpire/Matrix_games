@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://xt4roojiy80a"]
 
 [ext_resource type="Script" uid="uid://bxevj5c65dv7x" path="res://scripts/plant_bars.gd" id="1_13ixv"]
+[ext_resource type="Texture2D" uid="uid://jflt72ewkifw" path="res://assets/images/Transparent plant health bar overlay.png" id="2_eviar"]
+[ext_resource type="Texture2D" uid="uid://dmbbtkqxmet7x" path="res://assets/images/health_under.png" id="2_kd3to"]
+[ext_resource type="Texture2D" uid="uid://c6sjjvw4na5iq" path="res://assets/images/health_progress.png" id="4_vygxf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aydpl"]
 
@@ -23,10 +26,10 @@ corner_radius_bottom_left = 6
 [node name="plant_bars" type="Control" unique_id=829884784]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 81.0
-offset_top = 101.0
-offset_right = 130.0
-offset_bottom = 163.0
+offset_left = 52.0
+offset_top = 34.0
+offset_right = 407.0
+offset_bottom = 146.0
 script = ExtResource("1_13ixv")
 
 [node name="health_bar" type="ProgressBar" parent="." unique_id=694056542]
@@ -82,3 +85,34 @@ offset_right = 199.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 14
 text = "Hydration_num"
+
+[node name="temp_growth" type="TextureProgressBar" parent="." unique_id=808298312]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 77.0
+offset_right = 2157.0
+offset_bottom = 802.0
+scale = Vector2(0.12486401, 0.07921987)
+value = 1.0
+texture_under = ExtResource("2_kd3to")
+texture_over = ExtResource("2_eviar")
+texture_progress = ExtResource("4_vygxf")
+texture_progress_offset = Vector2(620, 174)
+
+[node name="growth_label" type="Label" parent="." unique_id=45068766]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 63.0
+offset_right = 64.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 14
+text = "GROWTH"
+
+[node name="growth_num" type="Label" parent="." unique_id=2101851473]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 95.0
+offset_right = 226.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 14
+text = "Growth_num"

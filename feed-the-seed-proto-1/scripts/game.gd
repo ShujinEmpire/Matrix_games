@@ -8,8 +8,9 @@ var prob:float
 @onready var fade_scream: AnimationPlayer = $fade_transition/fade_scream
 @onready var click: AudioStreamPlayer2D = $click
 @onready var button_manager: Control = $button_manager2
-@onready var plant_health := 100
-@onready var plant_hydrate := 100
+@onready var plant_health : int
+@onready var plant_hydrate : int
+@onready var plant_growth : int
 @onready var day_label: Label = $day_label
 @onready var plant: Node2D = $plant
 @onready var game_ui: Control = $GameUI
@@ -21,9 +22,12 @@ var prob:float
 
 func _ready() -> void:
 	coins = 100
+	plant_health = 100
+	plant_hydrate = 100
+	plant_growth = 0
 	print(str(prob)) 
 	day_label.text = "Day: " + str(day)
-	$plant_bars.update_bars(plant_health, plant_hydrate)
+	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
 	$coin_panel/coins_count.text = str(coins)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,7 +53,7 @@ func sub_coins(from_coins: int) -> void:
 func add_health(health: int) -> void:
 	plant_health += health
 	plant_health = clamp(plant_health,0,100)
-	$plant_bars.update_bars(plant_health, plant_hydrate)
+	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
 
 func get_health() -> int:
 	return plant_health
@@ -58,25 +62,51 @@ func get_health() -> int:
 func add_hydrate(hydrate: int) -> void:
 	plant_hydrate += hydrate
 	plant_hydrate = clamp(plant_hydrate,0,100)
-	$plant_bars.update_bars(plant_health, plant_hydrate)
+	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
 
 func get_hydrate() -> int:
 	return plant_hydrate
 
+func add_growth(growth: int) -> void:
+	plant_growth += growth
+	plant_growth = clamp(plant_growth, 0, 100)
+	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
+
+func get_growth() -> int:
+	return plant_growth
 
 func _on_fade_timer_timeout() -> void:
 	day += 1
-	plant_health -= 10
-	plant_hydrate -= 10
+	
+	if plant_hydrate <= 80:
+		plant_health -= 5
+	elif plant_hydrate <= 50:
+		plant_health -= 10
+	elif plant_hydrate <= 30:
+		plant_health -= 15
+	
+	if plant_growth >= 0 and plant_growth <= 29:
+		plant_hydrate -= 20
+	elif plant_growth >= 30 and plant_growth <= 60:
+		plant_hydrate -= 15
+	elif plant_growth >= 61 and plant_growth <= 80:
+		plant_hydrate -= 10
+	elif plant_growth > 80 and plant_growth <= 100:
+		plant_hydrate -= 5
+	
+	
 	if plant_health <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	
 	day_label.text = "Day: " + str(day)
-	if day == 5: 
-		$plant/plant_sprite.set_animation("seedling") 
-	elif day == 15:
+	#if day == 5: 
+		#$plant/plant_sprite.set_animation("seedling") 
+	if plant_growth == 100:
 		$plant/plant_sprite.set_animation("sprout") 
+		plant_growth = 0
+		add_health(100)
 		
-	$plant_bars.update_bars(plant_health, plant_hydrate)
+	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
 	
 	prob = button_manager.get_prob()
 	if prob > 0 and prob <= .1:
