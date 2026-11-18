@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d0mpgrti5furk"]
+
+[ext_resource type="SpriteFrames" uid="uid://clkw51s5k4oou" path="res://assets/sprites/plant_spritesheet.tres" id="1_6e84v"]
+
+[sub_resource type="AtlasTexture" id="atlas_0"]
+region = Rect2(0, 0, 364, 625)
+
+[sub_resource type="AtlasTexture" id="atlas_1"]
+region = Rect2(364, 0, 364, 625)
+
+[sub_resource type="AtlasTexture" id="atlas_2"]
+region = Rect2(728, 0, 364, 625)
+
+[sub_resource type="AtlasTexture" id="atlas_3"]
+region = Rect2(1092, 0, 364, 625)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi0kw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atlas_3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="plant" type="Node2D" unique_id=809955899]
+
+[node name="plant_sprite" type="AnimatedSprite2D" parent="." unique_id=986953284]
+visible = false
+visibility_layer = 2
+position = Vector2(599.9999, 337.99997)
+scale = Vector2(0.9208317, 0.9434692)
+sprite_frames = ExtResource("1_6e84v")
+animation = &"seedling"
+
+[node name="plant_sprite2" type="AnimatedSprite2D" parent="." unique_id=906931276]
+visible = false
+visibility_layer = 2
+position = Vector2(599.9999, 337.99997)
+scale = Vector2(0.9208317, 0.9434692)
+sprite_frames = SubResource("SpriteFrames_fi0kw")
+frame = 3
+frame_progress = 0.3165873

@@ -1,0 +1,279 @@
+{
+  "version": "0.1-review",
+  "design_elements": 6,
+  "variants": 9,
+  "png_count": 36,
+  "svg_count": 9,
+  "assets": [
+    {
+      "name": "seed_packet",
+      "svg": "svg/seed_packet.svg",
+      "dimensions": [
+        64,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/seed_packet.png",
+          "width": 32,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/seed_packet.png",
+          "width": 64,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/seed_packet.png",
+          "width": 128,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/seed_packet.png",
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "water_drop",
+      "svg": "svg/water_drop.svg",
+      "dimensions": [
+        64,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/water_drop.png",
+          "width": 32,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/water_drop.png",
+          "width": 64,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/water_drop.png",
+          "width": 128,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/water_drop.png",
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "growing_sprout",
+      "svg": "svg/growing_sprout.svg",
+      "dimensions": [
+        64,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/growing_sprout.png",
+          "width": 32,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/growing_sprout.png",
+          "width": 64,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/growing_sprout.png",
+          "width": 128,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/growing_sprout.png",
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "harvest_basket",
+      "svg": "svg/harvest_basket.svg",
+      "dimensions": [
+        64,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/harvest_basket.png",
+          "width": 32,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/harvest_basket.png",
+          "width": 64,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/harvest_basket.png",
+          "width": 128,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/harvest_basket.png",
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "inventory_slot",
+      "svg": "svg/inventory_slot.svg",
+      "dimensions": [
+        64,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/inventory_slot.png",
+          "width": 32,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/inventory_slot.png",
+          "width": 64,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/inventory_slot.png",
+          "width": 128,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/inventory_slot.png",
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "button_normal",
+      "svg": "svg/button_normal.svg",
+      "dimensions": [
+        192,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/button_normal.png",
+          "width": 96,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/button_normal.png",
+          "width": 192,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/button_normal.png",
+          "width": 384,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/button_normal.png",
+          "width": 768,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "button_hover",
+      "svg": "svg/button_hover.svg",
+      "dimensions": [
+        192,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/button_hover.png",
+          "width": 96,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/button_hover.png",
+          "width": 192,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/button_hover.png",
+          "width": 384,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/button_hover.png",
+          "width": 768,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "button_pressed",
+      "svg": "svg/button_pressed.svg",
+      "dimensions": [
+        192,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/button_pressed.png",
+          "width": 96,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/button_pressed.png",
+          "width": 192,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/button_pressed.png",
+          "width": 384,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/button_pressed.png",
+          "width": 768,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "button_disabled",
+      "svg": "svg/button_disabled.svg",
+      "dimensions": [
+        192,
+        64
+      ],
+      "png": {
+        "32": {
+          "path": "png/32/button_disabled.png",
+          "width": 96,
+          "height": 32
+        },
+        "64": {
+          "path": "png/64/button_disabled.png",
+          "width": 192,
+          "height": 64
+        },
+        "128": {
+          "path": "png/128/button_disabled.png",
+          "width": 384,
+          "height": 128
+        },
+        "256": {
+          "path": "png/256/button_disabled.png",
+          "width": 768,
+          "height": 256
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://xtng1w4di8yy"]
+
+[ext_resource type="Texture2D" uid="uid://c63fbloebubaw" path="res://assets/sprouts_lands/Sprite sheets/buttons/Square Buttons 26x19.png" id="1_bt76a"]
+[ext_resource type="Script" uid="uid://dxc0m7v87tris" path="res://scripts/game_ui.gd" id="1_djwj0"]
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="2_djwj0"]
+[ext_resource type="Texture2D" uid="uid://55b8cb3u0504" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/harvest_basket.png" id="3_e0pfi"]
+[ext_resource type="Texture2D" uid="uid://43p6eew7sq43" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/water_drop.png" id="4_o3bws"]
+[ext_resource type="Texture2D" uid="uid://b056sm1ve56ad" path="res://assets/sprouts_lands/Farming_icons/seedling-farming-expansion/RPG_Stat_MP_Mana_Star.png" id="5_3huio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsicu"]
+atlas = ExtResource("1_bt76a")
+region = Rect2(58, 6, 28, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bt76a"]
+load_path = "res://.godot/imported/Square Buttons 26x19.png-e3972b135f7a54e02d23cba610fa3366.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djwj0"]
+atlas = SubResource("CompressedTexture2D_bt76a")
+region = Rect2(58, 6, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0pfi"]
+atlas = ExtResource("1_bt76a")
+region = Rect2(58, 6, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3bws"]
+atlas = ExtResource("1_bt76a")
+region = Rect2(58, 6, 28, 20)
+
+[node name="GameUI" type="Control" unique_id=1844800265]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_djwj0")
+
+[node name="FeedButton" type="TextureButton" parent="." unique_id=1817795856]
+modulate = Color(0.8862745, 0.6313726, 0.56078434, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 26.0
+offset_top = 543.0
+offset_right = 246.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+texture_pressed = SubResource("AtlasTexture_djwj0")
+texture_hover = SubResource("AtlasTexture_e0pfi")
+texture_disabled = SubResource("AtlasTexture_o3bws")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="feed_label" type="Label" parent="FeedButton" unique_id=1013784047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("2_djwj0")
+theme_override_font_sizes/font_size = 32
+text = "       FEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedIcon" type="TextureRect" parent="FeedButton" unique_id=1788806781]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 86.0
+texture = ExtResource("3_e0pfi")
+
+[node name="WaterButton" type="TextureButton" parent="." unique_id=897551800]
+modulate = Color(0.56078434, 0.77254903, 0.84705883, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 309.0
+offset_top = 543.0
+offset_right = 530.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+texture_pressed = SubResource("AtlasTexture_qsicu")
+texture_hover = SubResource("AtlasTexture_qsicu")
+texture_disabled = SubResource("AtlasTexture_qsicu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="water_label" type="Label" parent="WaterButton" unique_id=1592979112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("2_djwj0")
+theme_override_font_sizes/font_size = 32
+text = "     
+       WATER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterIcon" type="TextureRect" parent="WaterButton" unique_id=853232086]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 29.0
+offset_right = 94.0
+offset_bottom = 93.0
+texture = ExtResource("4_o3bws")
+
+[node name="CareButton" type="TextureButton" parent="." unique_id=1560462210]
+modulate = Color(0.9098039, 0.7254902, 0.43529412, 1)
+custom_minimum_size = Vector2(180, 75)
+layout_mode = 0
+offset_left = 591.0
+offset_top = 543.0
+offset_right = 815.0
+offset_bottom = 656.0
+texture_normal = SubResource("AtlasTexture_qsicu")
+texture_pressed = SubResource("AtlasTexture_qsicu")
+texture_hover = SubResource("AtlasTexture_qsicu")
+texture_disabled = SubResource("AtlasTexture_qsicu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="care_label" type="Label" parent="CareButton" unique_id=1506897692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("2_djwj0")
+theme_override_font_sizes/font_size = 32
+text = "      CARE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CareIcon" type="TextureRect" parent="CareButton" unique_id=1659923831]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = 86.0
+offset_bottom = 78.0
+texture = ExtResource("5_3huio")
+
+[connection signal="mouse_entered" from="FeedButton" to="." method="_on_feed_button_mouse_entered"]
+[connection signal="mouse_exited" from="FeedButton" to="." method="_on_feed_button_mouse_exited"]
+[connection signal="pressed" from="FeedButton" to="." method="_on_feed_button_pressed"]
+[connection signal="mouse_entered" from="WaterButton" to="." method="_on_water_button_mouse_entered"]
+[connection signal="mouse_exited" from="WaterButton" to="." method="_on_water_button_mouse_exited"]
+[connection signal="pressed" from="WaterButton" to="." method="_on_water_button_pressed"]
+[connection signal="mouse_entered" from="CareButton" to="." method="_on_care_button_mouse_entered"]
+[connection signal="mouse_exited" from="CareButton" to="." method="_on_care_button_mouse_exited"]
+[connection signal="pressed" from="CareButton" to="." method="_on_care_button_pressed"]

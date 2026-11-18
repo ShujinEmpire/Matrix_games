@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c0h4a1tonj0s3"]
+
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="1_i8vhw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ren0k"]
+bg_color = Color(0.9647059, 0.8745098, 0.7529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4745098, 0.3137255, 0.24313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="DayPanel" type="Panel" unique_id=308189022]
+custom_minimum_size = Vector2(180, 75)
+offset_left = 13.0
+offset_top = 79.0
+offset_right = 251.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ren0k")
+
+[node name="day_label" type="Label" parent="." unique_id=1235411767]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 2.0
+offset_right = 190.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.32941177, 0.21568628, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("1_i8vhw")
+theme_override_font_sizes/font_size = 32
+text = "Day: day:int"
+horizontal_alignment = 1
+vertical_alignment = 1

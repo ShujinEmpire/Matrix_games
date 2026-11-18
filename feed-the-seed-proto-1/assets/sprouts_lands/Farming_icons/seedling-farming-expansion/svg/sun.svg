@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<ellipse cx="32.0" cy="32.0" rx="12.0" ry="12.0" fill="#e7bd69" stroke="#2e493e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="32.000,7.000 32.000,13.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="32.000,51.000 32.000,57.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="7.000,32.000 13.000,32.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="51.000,32.000 57.000,32.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="14.000,14.000 19.000,19.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="45.000,45.000 50.000,50.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="14.000,50.000 19.000,45.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="45.000,19.000 50.000,14.000" fill="none" stroke="#b98945" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

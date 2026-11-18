@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bgmcp5ahfpue4"]
+
+[ext_resource type="Script" uid="uid://m3v6qexah585" path="res://scripts/button_manager.gd" id="1_cmmsf"]
+[ext_resource type="Texture2D" uid="uid://c68pooj577yn5" path="res://assets/sprouts_lands/Farming_icons/seedling-ui-sample/png/64/seed_packet.png" id="1_o2cvc"]
+[ext_resource type="FontFile" uid="uid://1k1nfnsyhiwj" path="res://assets/fonts/PixelOperator-Bold.ttf" id="2_cmmsf"]
+[ext_resource type="Texture2D" uid="uid://c63fbloebubaw" path="res://assets/sprouts_lands/Sprite sheets/buttons/Square Buttons 26x19.png" id="3_aifwd"]
+[ext_resource type="Texture2D" uid="uid://ds2snn26unefy" path="res://assets/sprouts_lands/Farming_icons/seedling-farming-expansion/png/64/sun.png" id="4_kqmts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr3o2"]
+bg_color = Color(0.39470178, 0.6843289, 0.32645866, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.30953833, 0.51201653, 0.2423588, 0.6)
+shadow_size = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w1ug"]
+atlas = ExtResource("3_aifwd")
+region = Rect2(56, 67, 33, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnbpa"]
+texture = SubResource("AtlasTexture_0w1ug")
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
+texture = ExtResource("3_aifwd")
+region_rect = Rect2(54, 66, 37, 27)
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dinhu"]
+texture = ExtResource("3_aifwd")
+region_rect = Rect2(55, 67, 34, 24)
+modulate_color = Color(0.627451, 0.72156864, 0.4745098, 1)
+
+[node name="button_manager" type="Control" unique_id=1048232435]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -652.0
+offset_top = -356.0
+offset_right = -507.0
+offset_bottom = -303.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmmsf")
+
+[node name="shop" type="Button" parent="." unique_id=882512333]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 960.5
+offset_top = 40.0
+offset_right = 1144.5
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr3o2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cr3o2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cr3o2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cr3o2")
+text = "shop
+"
+icon = ExtResource("1_o2cvc")
+
+[node name="advance_day" type="Button" parent="." unique_id=1852829482]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.036000002
+anchor_top = -0.109000005
+anchor_right = -0.036000002
+anchor_bottom = -0.109000005
+offset_left = 923.22
+offset_top = 559.777
+offset_right = 1256.22
+offset_bottom = 687.777
+theme_override_colors/font_color = Color(0.21568628, 0.23529412, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("2_cmmsf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_cnbpa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kvuet")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dinhu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cnbpa")
+text = "SKIP DAY
+"
+
+[node name="DayIcon" type="TextureRect" parent="advance_day" unique_id=1843882244]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 34.0
+offset_right = 109.0
+offset_bottom = 98.0
+texture = ExtResource("4_kqmts")
+
+[connection signal="pressed" from="shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="advance_day" to="." method="_on_advance_day_pressed"]
