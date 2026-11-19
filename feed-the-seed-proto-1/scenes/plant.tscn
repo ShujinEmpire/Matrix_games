@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://d0mpgrti5furk"]
 
 [ext_resource type="SpriteFrames" uid="uid://clkw51s5k4oou" path="res://assets/sprites/plant_spritesheet.tres" id="1_6e84v"]
+[ext_resource type="Script" uid="uid://dmdfyew6ncwdx" path="res://scripts/plant_changes.gd" id="1_toh6u"]
+[ext_resource type="Texture2D" uid="uid://bk61no62w7xrr" path="res://assets/sprites/plant_sprout_sprite.png" id="3_ptog4"]
+[ext_resource type="Texture2D" uid="uid://scjr2n5hhgvg" path="res://assets/sprites/seed_sprite.png" id="4_8qc6y"]
+[ext_resource type="Texture2D" uid="uid://dr0b6c4f0bv3m" path="res://assets/sprites/plant_pot_sprite.png" id="5_ljraq"]
 
 [sub_resource type="AtlasTexture" id="atlas_0"]
 region = Rect2(0, 0, 364, 625)
@@ -35,6 +39,7 @@ animations = [{
 }]
 
 [node name="plant" type="Node2D" unique_id=809955899]
+script = ExtResource("1_toh6u")
 
 [node name="plant_sprite" type="AnimatedSprite2D" parent="." unique_id=986953284]
 visible = false
@@ -52,3 +57,19 @@ scale = Vector2(0.9208317, 0.9434692)
 sprite_frames = SubResource("SpriteFrames_fi0kw")
 frame = 3
 frame_progress = 0.3165873
+
+[node name="PlantSproutSprite" type="Sprite2D" parent="." unique_id=154624177]
+visible = false
+position = Vector2(610, 280)
+scale = Vector2(0.8598901, 0.7768)
+texture = ExtResource("3_ptog4")
+
+[node name="SeedSprite" type="Sprite2D" parent="." unique_id=1978389225]
+position = Vector2(590, 346.00003)
+scale = Vector2(1.0860058, 1.0597668)
+texture = ExtResource("4_8qc6y")
+
+[node name="PlantPotSprite" type="Sprite2D" parent="." unique_id=212346059]
+visible = false
+position = Vector2(592, 358)
+texture = ExtResource("5_ljraq")

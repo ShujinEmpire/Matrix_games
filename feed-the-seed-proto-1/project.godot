@@ -23,6 +23,8 @@ buses/default_bus_layout="uid://dmq0t4ogwhiku"
 
 BackgroundMusic="uid://dkacsuvx10fn4"
 GameOverScene="uid://d0ymk7p23bvra"
+Sfx="*uid://c6rnuwi625r6a"
+Music="*uid://ckyyxvctrcru0"
 
 [display]
 

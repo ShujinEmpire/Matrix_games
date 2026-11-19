@@ -175,7 +175,8 @@ scale = Vector2(2.1654344, 1.875)
 texture = ExtResource("2_yqjtg")
 
 [node name="plant" parent="." unique_id=809955899 instance=ExtResource("6_p57ef")]
-position = Vector2(0.00012207031, 3)
+position = Vector2(120, 119)
+scale = Vector2(0.80301785, 0.7856949)
 
 [node name="DayPanel" parent="." unique_id=308189022 instance=ExtResource("3_ir15t")]
 

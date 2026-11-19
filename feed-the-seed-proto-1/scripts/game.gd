@@ -9,8 +9,12 @@ var prob:float
 @onready var click: AudioStreamPlayer2D = $click
 @onready var button_manager: Control = $button_manager2
 @onready var plant_health : int
+@onready var plant_growth_max : int
 @onready var plant_hydrate : int
 @onready var plant_growth : int
+@onready var plant_is_seed : bool
+@onready var plant_is_sprout : bool
+@onready var plant_is_grown : bool
 @onready var day_label: Label = $day_label
 @onready var plant: Node2D = $plant
 @onready var game_ui: Control = $GameUI
@@ -19,12 +23,18 @@ var prob:float
 @onready var feed: TextureButton = $GameUI/FeedButton
 @onready var water: TextureButton = $GameUI/WaterButton
 @onready var care: TextureButton = $GameUI/CareButton
+@onready var plant_bars: Control = $plant_bars
+
+
 
 func _ready() -> void:
 	coins = 100
 	plant_health = 100
 	plant_hydrate = 100
+	plant_growth_max = 100
 	plant_growth = 0
+	plant_is_seed = true
+	plant_is_sprout = false
 	print(str(prob)) 
 	day_label.text = "Day: " + str(day)
 	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
@@ -69,11 +79,14 @@ func get_hydrate() -> int:
 
 func add_growth(growth: int) -> void:
 	plant_growth += growth
-	plant_growth = clamp(plant_growth, 0, 100)
+	plant_growth = clamp(plant_growth, 0, plant_growth_max)
 	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
 
 func get_growth() -> int:
 	return plant_growth
+
+func get_max_growth() -> int:
+	return plant_growth_max
 
 func _on_fade_timer_timeout() -> void:
 	day += 1
@@ -103,13 +116,16 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	
 	day_label.text = "Day: " + str(day)
-	#if day == 5: 
-		#$plant/plant_sprite.set_animation("seedling") 
-	if plant_growth >= 100:
-		$plant/plant_sprite.set_animation("sprout") 
+
+	if plant_growth >= plant_growth_max and plant_is_seed:
+		plant.plant_sprout()
 		plant_growth = 0
+		plant_is_sprout = true
 		add_health(100)
-		
+		plant_is_seed = false
+		plant_growth_max = 150
+		plant_bars.set_growth_max(plant_growth_max)
+	
 	
 	plant_hydrate = clamp(plant_hydrate,0,100)
 	$plant_bars.update_bars(plant_health, plant_hydrate, plant_growth)
